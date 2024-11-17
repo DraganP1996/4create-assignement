@@ -1,0 +1,32 @@
+.table {
+  display: grid;
+  width: 100%;
+  box-shadow: 0px 0px 3px #a0a0a0;
+
+  &-header {
+    display: grid;
+    font-weight: bold;
+    background-color: #00ffcf;
+    text-align: left;
+  }
+
+  &-row {
+    display: grid;
+
+    &:nth-child(even) {
+      .table-cell {
+        background-color: #03ffcf54;
+      }
+    }
+
+    &:nth-child(odd) {
+      .table-cell {
+        background-color: #03ffd1ac;
+      }
+    }
+  }
+
+  &-cell {
+    padding: 8px;
+  }
+}

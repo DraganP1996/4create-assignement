@@ -1,0 +1,24 @@
+<div class="table">
+  <div
+    class="table-header"
+    [style.grid-template-columns]="'repeat(' + columns.length + ', 1fr)'"
+  >
+    @for (column of columns; track column.key) {
+    <div class="table-cell" [style.text-align]="column.align">
+      {{ column.name }}
+    </div>
+    }
+  </div>
+  @for (row of rows; track row.id) {
+  <div
+    class="table-row"
+    [style.grid-template-columns]="'repeat(' + columns.length + ', 1fr)'"
+  >
+    @for (column of columns; track column.key) {
+    <div class="table-cell" [style.text-align]="column.align">
+      {{ row[column.key] }}
+    </div>
+    }
+  </div>
+  }
+</div>

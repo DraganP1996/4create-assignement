@@ -6,6 +6,7 @@
   .container {
     flex: 1;
     display: flex;
+    gap: 4px;
     flex-direction: column;
     max-width: var(--max-width);
     padding: 16px 0;
