@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ContainerComponent } from '../../shared/components/container/container.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+
+import { ContainerComponent } from '@shared/components';
+import { UserListComponent } from './components';
 
 @Component({
   selector: 'app-users',

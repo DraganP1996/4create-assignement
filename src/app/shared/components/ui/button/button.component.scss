@@ -5,4 +5,46 @@ button {
   font-weight: 600;
   background-color: var(--action-color);
   color: white;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &.tilt {
+    transition: rotate 0.3s ease;
+    animation: tilt-animation 10s infinite;
+  }
+
+  &:hover {
+    background-color: var(--action-color-hover);
+  }
+}
+
+@keyframes tilt-animation {
+  0%,
+  92% {
+    transform: rotate(0deg);
+  }
+  93% {
+    transform: rotate(-3deg);
+  }
+  94% {
+    transform: rotate(3deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  96% {
+    transform: rotate(5deg);
+  }
+  97% {
+    transform: rotate(-5deg);
+  }
+  98% {
+    transform: rotate(5deg);
+  }
+  99% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
 }

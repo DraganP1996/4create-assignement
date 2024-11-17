@@ -1,1 +1,4 @@
-<app-simple-table [columns]="cols" [rows]="rows" />
+<div class="user-list">
+  <p>There are {{ (users$ | async)?.length }} users.</p>
+  <app-simple-table [columns]="cols" [rows]="(users$ | async) || []" />
+</div>

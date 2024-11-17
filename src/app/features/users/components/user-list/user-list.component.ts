@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
-import { SimpleTableComponent } from '../../../../shared/components/ui/simple-table/simple-table.component';
+import { AsyncPipe } from '@angular/common';
+import { Observable } from 'rxjs';
+
 import {
   SimpleTableColumn,
+  SimpleTableComponent,
   SimpleTableRow,
-} from '../../../../shared/components/ui/simple-table/simple-table.model';
+} from '@shared/components';
+import { User, UsersQuery } from '@stores/user';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [SimpleTableComponent],
+  imports: [SimpleTableComponent, AsyncPipe],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
 })
 export class UserListComponent {
+  users$: Observable<User[]>;
+
+  constructor(private _usersQuery: UsersQuery) {
+    this.users$ = this._usersQuery.selectAll();
+  }
+
   cols: SimpleTableColumn[] = [
+    { key: 'id', name: 'Id', align: 'left' },
     { key: 'name', name: 'Name', align: 'left' },
-    { key: 'age', name: 'Age', align: 'center' },
-    { key: 'email', name: 'Email', align: 'left' },
+    { key: 'active', name: 'Active', align: 'left' },
   ];
 
   rows: SimpleTableRow[] = [
