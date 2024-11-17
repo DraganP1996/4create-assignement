@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./_styles/reset.scss";
+@import "./_styles/colors.scss";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background-color);
+  display: flex;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 34px;
+}

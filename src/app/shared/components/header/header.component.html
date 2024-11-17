@@ -1,1 +1,23 @@
-<div>HEADER</div>
+<div class="header">
+  <div class="header__navigation">
+    <div class="header__logo">
+      <img src="assets/images/logo.png" alt="" />
+    </div>
+    <div class="nav-items">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item"
+      >
+        Home
+      </a>
+      <a routerLink="/users" routerLinkActive="active" class="nav-item">
+        Users
+      </a>
+    </div>
+  </div>
+  <div class="header__cta">
+    <app-button> Add User </app-button>
+  </div>
+</div>
