@@ -17,4 +17,8 @@ export class UserService {
   removeUser(id: number) {
     this._usersStore.remove(id);
   }
+
+  toggleCreateUserModal(open: boolean) {
+    this._usersStore.update({ isCreateUserModalOpen: open });
+  }
 }

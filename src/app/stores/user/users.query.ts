@@ -20,4 +20,8 @@ export class UsersQuery extends QueryEntity<UsersState, User, number> {
       map((users) => users.filter((user) => user.active))
     );
   }
+
+  selectIsCreateUserModalOpen(): Observable<boolean> {
+    return this.select((state) => state.isCreateUserModalOpen);
+  }
 }

@@ -1,0 +1,13 @@
+@if (isVisible) {
+<div class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-box__header">
+      <div class="modal-box__header-title">{{ title }}</div>
+      <app-close-icon (onClick)="onClose.emit()" />
+    </div>
+    <div class="modal-box__content">
+      <ng-content />
+    </div>
+  </div>
+</div>
+}
