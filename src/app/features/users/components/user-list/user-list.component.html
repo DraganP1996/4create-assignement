@@ -1,4 +1,8 @@
 <div class="user-list">
   <p>There are {{ (users$ | async)?.length }} users.</p>
-  <app-simple-table [columns]="cols" [rows]="(users$ | async) || []" />
+  <app-simple-table
+    [columns]="cols"
+    [rows]="(users$ | async) || []"
+    (cellToggled)="userToggle($event)"
+  />
 </div>

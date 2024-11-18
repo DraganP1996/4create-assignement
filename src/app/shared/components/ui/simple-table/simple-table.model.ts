@@ -19,6 +19,10 @@ export interface SimpleTableColumn {
    * Definition of custom cell templates
    */
   template?: TemplateRef<any>;
+  /**
+   * Definition of column type
+   */
+  type: 'text' | 'toggle';
 }
 
 export type SimpleTableRow = Record<string, any> & { id: number };

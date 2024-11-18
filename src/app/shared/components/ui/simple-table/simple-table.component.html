@@ -16,7 +16,15 @@
   >
     @for (column of columns; track column.key) {
     <div class="table-cell" [style.text-align]="column.align">
+      @if (column.type === 'text') {
       {{ row[column.key] }}
+
+      } @else {
+      <app-toggle
+        [value]="row[column.key]"
+        (onToggle)="cellToggled.emit({ id: row.id, value: $event })"
+      />
+      }
     </div>
     }
   </div>

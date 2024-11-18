@@ -8,6 +8,7 @@ import {
   SimpleTableRow,
 } from '@shared/components';
 import { User, UsersQuery } from '@stores/user';
+import { UserService } from '@shared/services';
 
 @Component({
   selector: 'app-user-list',
@@ -19,14 +20,17 @@ import { User, UsersQuery } from '@stores/user';
 export class UserListComponent {
   users$: Observable<User[]>;
 
-  constructor(private _usersQuery: UsersQuery) {
+  constructor(
+    private _usersQuery: UsersQuery,
+    private _userService: UserService
+  ) {
     this.users$ = this._usersQuery.selectAll();
   }
 
   cols: SimpleTableColumn[] = [
-    { key: 'id', name: 'Id', align: 'left' },
-    { key: 'name', name: 'Name', align: 'left' },
-    { key: 'active', name: 'Active', align: 'left' },
+    { key: 'id', name: 'Id', align: 'left', type: 'text' },
+    { key: 'name', name: 'Name', align: 'left', type: 'text' },
+    { key: 'active', name: 'Active', align: 'left', type: 'toggle' },
   ];
 
   rows: SimpleTableRow[] = [
@@ -34,4 +38,8 @@ export class UserListComponent {
     { id: 2, name: 'Jane Smith', age: 30, email: 'jane@example.com' },
     { id: 3, name: 'Sam Brown', age: 22, email: 'sam@example.com' },
   ];
+
+  userToggle({ id, value }: { id: number; value: boolean }) {
+    this._userService.updateUser(id, { active: value });
+  }
 }

@@ -1,4 +1,10 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output,
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -17,8 +23,9 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class ToggleComponent {
   @Input() id = '';
+  @Input() value = false;
 
-  value = false;
+  @Output() onToggle = new EventEmitter<boolean>();
 
   // These methods are provided by the ControlValueAccessor interface
   onChange: (value: boolean) => void = () => {};
@@ -45,5 +52,6 @@ export class ToggleComponent {
     this.value = checkbox.checked;
     this.onChange(this.value); // Notify Angular of the new value
     this.onTouched(); // Notify Angular that the component was touched
+    this.onToggle.emit(this.value);
   }
 }
