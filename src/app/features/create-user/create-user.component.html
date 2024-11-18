@@ -1,16 +1,24 @@
 <div class="create-user">
-  <div class="create-user__form">
+  <form class="create-user__form" [formGroup]="form">
     <div class="create-user__form-field">
-      Name
-      <app-input />
+      <label for="name"> Name </label>
+      <app-input id="name" formControlName="name" />
     </div>
     <div class="create-user__form-field">
-      Active
-      <app-toggle />
+      <label for="active"> Active </label>
+      <app-toggle id="active" formControlName="active" />
     </div>
-  </div>
+    <div *ngIf="form.get('name')?.hasError('uniqueName')">
+      Name is already taken.
+    </div>
+  </form>
   <div class="create-user__actions">
-    <app-button type="outlined"> Cancel </app-button>
-    <app-button> Create </app-button>
+    <app-button type="outlined" (click)="closeModal()"> Cancel </app-button>
+    <app-button
+      [disabled]="form.invalid || form.pending"
+      (click)="createUser()"
+    >
+      Create
+    </app-button>
   </div>
 </div>

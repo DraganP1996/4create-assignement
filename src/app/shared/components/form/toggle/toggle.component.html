@@ -1,4 +1,4 @@
-<label class="toggle-switch">
-  <input type="checkbox" />
+<label class="toggle-switch" (change)="onCheckboxChange($event)">
+  <input [id]="id" type="checkbox" />
   <span class="slider"></span>
 </label>

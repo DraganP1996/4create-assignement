@@ -1,3 +1,8 @@
-<button type="button" [class.tilt]="tilt" [ngClass]="type">
+<button
+  type="button"
+  [class.tilt]="!disabled && tilt"
+  [ngClass]="type"
+  [disabled]="disabled"
+>
   <ng-content />
 </button>

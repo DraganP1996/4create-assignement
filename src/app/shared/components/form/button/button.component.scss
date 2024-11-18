@@ -26,6 +26,15 @@ button {
     color: var(--action-color);
     border: 2px solid var(--action-color);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: gray;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
 }
 
 @keyframes tilt-animation {

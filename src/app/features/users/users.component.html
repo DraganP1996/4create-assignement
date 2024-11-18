@@ -7,6 +7,6 @@
     title="Create User"
     (onClose)="closeCreateUserModal()"
   >
-    <app-create-user />
+    <app-create-user *ngIf="isCreateUserModalOpen$ | async" />
   </app-modal>
 </app-container>

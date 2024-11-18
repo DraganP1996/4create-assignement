@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 import { ContainerComponent, ModalComponent } from '@shared/components';
 import { UserListComponent } from './components';
@@ -17,6 +17,7 @@ import { CreateUserComponent } from '@features/create-user/create-user.component
     UserListComponent,
     ModalComponent,
     AsyncPipe,
+    NgIf,
   ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
@@ -32,7 +33,6 @@ export class UsersComponent {
   }
 
   closeCreateUserModal() {
-    console.log('Close modal clicked');
     this._userService.toggleCreateUserModal(false);
   }
 }

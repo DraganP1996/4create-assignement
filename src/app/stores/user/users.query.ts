@@ -24,4 +24,16 @@ export class UsersQuery extends QueryEntity<UsersState, User, number> {
   selectIsCreateUserModalOpen(): Observable<boolean> {
     return this.select((state) => state.isCreateUserModalOpen);
   }
+
+  selectUserByName(name: string): Observable<User | undefined> {
+    return this.selectAll().pipe(
+      map((users) => users.find((user) => user.name === name))
+    );
+  }
+
+  areAllUserActive$(): Observable<boolean> {
+    return this.selectAll().pipe(
+      map((user) => user.every((user) => user.active))
+    );
+  }
 }

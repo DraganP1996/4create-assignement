@@ -10,6 +10,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  @Input() tilt?: boolean = false;
+  @Input() tilt = false;
   @Input() type: ButtonTypes = 'primary';
+  @Input() disabled = false;
 }

@@ -19,7 +19,11 @@
   </div>
   <div class="header__cta">
     @if (router.url === '/users') {
-    <app-button [tilt]="true" (click)="openCreateUserModal()">
+    <app-button
+      [tilt]="true"
+      (click)="openCreateUserModal()"
+      [disabled]="!(enableCreateButton$ | async)"
+    >
       Add User
     </app-button>
     }
