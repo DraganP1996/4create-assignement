@@ -1,7 +1,16 @@
 <div class="create-user">
-  <div class="create-user__form">Here will be the form</div>
+  <div class="create-user__form">
+    <div class="create-user__form-field">
+      Name
+      <app-input />
+    </div>
+    <div class="create-user__form-field">
+      Active
+      <app-toggle />
+    </div>
+  </div>
   <div class="create-user__actions">
-    <app-button> Cancel </app-button>
+    <app-button type="outlined"> Cancel </app-button>
     <app-button> Create </app-button>
   </div>
 </div>

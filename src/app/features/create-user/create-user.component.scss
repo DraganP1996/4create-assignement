@@ -3,6 +3,19 @@
   flex-direction: column;
   gap: 16px;
 
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &-field {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   &__actions {
     display: flex;
     flex-direction: row;

@@ -1,0 +1,16 @@
+.input-wrapper {
+  font-size: 20px;
+  background-color: var(--action-color-light);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+
+  input {
+    border: 0;
+    background-color: transparent;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
